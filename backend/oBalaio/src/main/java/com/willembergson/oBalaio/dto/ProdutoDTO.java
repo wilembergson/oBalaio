@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Optional;
 
 @Data
 @Builder
@@ -28,5 +29,9 @@ public class ProdutoDTO {
         id = p.getId();
         name = p.getName();
         price = p.getPrice();
+    }
+
+    public ProdutoDTO(Optional<Produto> p){
+
     }
 }

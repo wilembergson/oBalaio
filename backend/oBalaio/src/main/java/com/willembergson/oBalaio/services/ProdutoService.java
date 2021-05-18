@@ -6,7 +6,9 @@ import com.willembergson.oBalaio.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,5 +38,20 @@ public class ProdutoService {
 
     public void create(Produto produto){
         produtoRepository.save(produto);
+    }
+
+    public Produto update(Long id, Produto produto){
+       try{
+           Produto p = produtoRepository.getOne(id);
+           updateData(p, produto);
+           return produtoRepository.save(p);
+       }catch(EntityNotFoundException e){
+           throw new EntityNotFoundException();
+       }
+    }
+
+    private void updateData(Produto p, Produto produto){
+        p.setName(produto.getName());
+        p.setPrice(produto.getPrice());
     }
 }

@@ -5,6 +5,7 @@ import com.willembergson.oBalaio.entity.Produto;
 import com.willembergson.oBalaio.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,4 +43,9 @@ public class ProdutoController {
         produtoService.create(produto);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Produto> update(@PathVariable Long id, @RequestBody Produto produto){
+        produto = produtoService.update(id, produto);
+        return ResponseEntity.ok().body(produto);
+    }
 }
