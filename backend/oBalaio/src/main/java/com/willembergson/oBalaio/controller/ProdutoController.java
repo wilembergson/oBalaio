@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/produtos")
 public class ProdutoController {
@@ -20,7 +21,7 @@ public class ProdutoController {
         this.produtoService = produtoService;
     }
 
-    @GetMapping
+    @GetMapping("/listAll")
     public List<ProdutoDTO> findAll(){
         return produtoService.findAll();
     }
