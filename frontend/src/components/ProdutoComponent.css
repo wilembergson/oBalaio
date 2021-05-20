@@ -16,3 +16,8 @@ aside.basket{
 aside.tabela{
     grid-area: tabela;
 }
+
+.produtos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
