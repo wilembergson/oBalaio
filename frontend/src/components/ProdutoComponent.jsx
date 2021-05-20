@@ -29,7 +29,7 @@ class ProdutoComponent extends React.Component {
                 <div className="dados">
                     <Basket />
                     <div className="tabela">
-                        <h1 className="text-center"> Lista de produtos</h1>
+                        <h1 className="text-center mt-3"> Lista de produtos</h1>
                         <div className="produtos">
                             {
                                 this.state.produtos.map(

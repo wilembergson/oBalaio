@@ -1,9 +1,15 @@
 .card{
-    width: 100px;
-    height: 100px;
-    background-color: black;
+    width: 250px;
+    height: 300px;
+    box-shadow: 5px 5px 5px black;
 }
 
 label{
     color: aliceblue;
+    font-size: 30px;
+}
+
+button{
+    width: 150px;
+    align-self: center;
 }
