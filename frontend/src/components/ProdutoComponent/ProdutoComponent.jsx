@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import ProdutoService from '../services/ProdutoService'
-import Basket from './Basket';
-import Card from './Card';
-import NavBar from './NavBar'
+import ProdutoService from '../../services/ProdutoService'
+import Basket from '../Basket/Basket';
+import Card from '../Cards/Card';
+import NavBar from '../NavBar/NavBar'
 import './ProdutoComponent.css'
 
 
@@ -27,10 +27,11 @@ class ProdutoComponent extends React.Component {
         return (
             <>
                 <div className="dados">
-                    <Basket />
+                    <Basket prod={this.state.produtos} />
                     <div className="tabela">
-                        <h1 className="text-center mt-3"> Lista de produtos</h1>
-                        <div className="produtos">
+                        <h4 className="text-center mt-3">Lista de produtos</h4>
+                        <hr/>
+                        <div className="produtoss ml-5 mr-5">
                             {
                                 this.state.produtos.map(
                                     p =>

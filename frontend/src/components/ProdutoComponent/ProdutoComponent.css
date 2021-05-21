@@ -1,0 +1,24 @@
+h4, td, tr {
+    color: aliceblue;
+}
+
+.dados {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    grid-template-areas: "basket" "tabela";
+}
+
+aside.basket {
+    grid-area: basket;
+}
+
+aside.tabela {
+    grid-area: tabela;
+}
+
+.produtoss {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}

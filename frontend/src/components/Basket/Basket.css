@@ -1,0 +1,11 @@
+.basket {
+    width: 100%;
+    min-height: 100vh;
+    box-shadow: 5px 5px 5px black;
+}
+
+.tnome {
+    font-size: 17px;
+    padding: 15px;
+    color: antiquewhite;
+}

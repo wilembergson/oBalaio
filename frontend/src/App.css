@@ -1,11 +1,9 @@
 html,body{
   width: 100%;
   height:100%;
-  color: rgb(59, 59, 58);
 }
 
 .App{
-  text-align: center;
   height: auto;
   background-color: rgb(59, 59, 58);
   margin: 0px;
@@ -35,15 +33,4 @@ grid-area: dadosT;
 
 aside.footer{
 grid-area: footerT;
-}
-
-.card{
-  width: 250px;
-  height: 300px;
-  margin-top: 5px;
-  background-color: blueviolet;
-  box-shadow: 5px 5px 5px black;
-  transition: 0.3s;
-  animation: ease-in;
-
 }
