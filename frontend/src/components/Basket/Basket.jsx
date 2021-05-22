@@ -1,17 +1,25 @@
-import React, { useState }from 'react'
+import React, { useState, useEffect } from 'react'
 import './Basket.css'
 
 
 function Basket(props) {
 
-    const [cesta, setCesta] = useState()
+    var cesta = []
+    const [item, setItem] = useState({})
+
+    var it = props.item
+    setItem(it)
+
+    useEffect(() => {
+        cesta.push(item)
+    }, [item])
 
     return (
         <>
             <div className="basket ml-2">
                 <div className="tnome bg-dark">
                     Cesta
-        </div>
+                 </div>
                 <table className="table table-striped">
                     <thead>
                         <tr>
@@ -21,7 +29,7 @@ function Basket(props) {
                     </thead>
                     <tbody>
                         {
-                            props.item.map(
+                            cesta.map(
                                 p =>
                                     <tr key={p.id}>
                                         <td>{p.name}</td>

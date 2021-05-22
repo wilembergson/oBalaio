@@ -1,24 +1,52 @@
 import { render } from '@testing-library/react'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import ProdutoService from '../../services/ProdutoService'
 import Basket from '../Basket/Basket';
 import Card from '../Cards/Card';
-import NavBar from '../NavBar/NavBar'
 import './ProdutoComponent.css'
 
 function ProdutoComponent(props) {
     const  API_URL = 'http://localhost:8080/produtos/listAll'
 
     const [prod, setProd] = useState([])
-    const [it, setIt] = useState([])
+    const [cesta, setCesta] = useState([])
+    const [it, setIt] = useState({})
 
     axios.get(API_URL).then((response) => setProd(response.data))
+
+    useEffect(() => {
+        cesta.push(it)
+    }, [it])
 
     return (
         <>
             <div className="dados">
-                <Basket prod={prod} item={it} />
+            <div className="basket ml-2">
+                <div className="tnome bg-dark">
+                    Cesta
+                 </div>
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>Nome</td>
+                            <td>Preço(R$)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            cesta.map(
+                                p =>
+                                    <tr key={p.id}>
+                                        <td>{p.name}</td>
+                                        <td>{p.price}</td>
+                                    </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
+            </div>
+                {/*<Basket prod={prod} item={it} />*/}
                 <div className="tabela">
                     <h4 className="text-center mt-3">Lista de prod</h4>
                     <hr />
