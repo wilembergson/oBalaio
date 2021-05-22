@@ -5,7 +5,8 @@ class Card extends React.Component {
 
         item = {
                 name: this.props.name,
-                price: this.props.price
+                price: this.props.price,
+                quantity: 1
         }
 
         render (){
