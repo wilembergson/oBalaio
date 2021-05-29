@@ -5,8 +5,7 @@ class Card extends React.Component {
 
         item = {
                 name: this.props.name,
-                price: this.props.price,
-                quantity: 1
+                price: this.props.price
         }
 
         render (){
@@ -16,7 +15,7 @@ class Card extends React.Component {
                                 <label className="label mt-5">{this.props.name}</label>
                                 <label className="label mt-2 mb-4">R${this.props.price}</label>
 
-                                <button onClick={()=>this.props.adicionar(this.item)} className="button btn btn-outline-success mt-5">
+                                <button onClick={()=>this.props.adicionar(this.item, this.item.price)} className="button btn btn-outline-success mt-5">
                                         + Adicionar
                     </button>
                         </div>
