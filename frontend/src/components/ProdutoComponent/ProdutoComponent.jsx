@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-import Basket from '../Basket/Basket';
+import '../../components/Basket/Basket.css'
 import Card from '../Cards/Card';
 import './ProdutoComponent.css'
 
@@ -20,6 +20,7 @@ function ProdutoComponent(props) {
         for (var i = 0; i < cesta.length; i++) {
             if (itemCopy[i].name === item.name) {
                 itemCopy[i].quantity++
+                itemCopy[i].price = parseFloat(item.price * itemCopy[i].quantity).toFixed(2)
                 existente = true
             }
         }
@@ -42,6 +43,7 @@ function ProdutoComponent(props) {
                                 <td>Nome</td>
                                 <td>Preço(R$)</td>
                                 <td>Quantidade</td>
+                                <td></td>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,6 +54,7 @@ function ProdutoComponent(props) {
                                             <td>{p.name}</td>
                                             <td>{p.price}</td>
                                             <td>{p.quantity}</td>
+                                            <td><button type="button" className="btn2 btn-danger">-</button></td>
                                         </tr>
                                 )
                             }
