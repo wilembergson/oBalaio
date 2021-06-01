@@ -60,7 +60,7 @@ function ProdutoComponent(props) {
                 </div>
                 {/*<Basket prod={prod} item={it} />*/}
                 <div className="tabela">
-                    <h4 className="text-center mt-3">Lista de prod</h4>
+                    <h4 className="text-center mt-3">Lista de produtos</h4>
                     <hr />
                     <div className="produtoss ml-5 mr-5">
                         {
