@@ -25,7 +25,7 @@ function ProdutoComponent(props) {
             }
         }
         if (existente === false) {
-            itemCopy.push({ id: cesta.length, name: item.name, price: item.price, quantity: 1 })
+            itemCopy.push({ id: parseInt(cesta.length+1), name: item.name, price: item.price, quantity: 1 })
         }
         setCesta(itemCopy)
     }
@@ -48,20 +48,23 @@ function ProdutoComponent(props) {
                         </thead>
                         <tbody>
                             {
-                                cesta.map(
-                                    p =>
-                                        <tr key={p.id}>
+                                cesta.map(p => 
+                                    <tr>
                                             <td>{p.name}</td>
                                             <td>{p.price}</td>
                                             <td>{p.quantity}</td>
                                             <td><button type="button" className="btn2 btn-danger">-</button></td>
                                         </tr>
+                                    
                                 )
                             }
                         </tbody>
-                    </table>
+                        </table>
+                        <div className="tnome bg-dark">
+                        TOTAL: R$
+                 </div>
                 </div>
-                {/*<Basket prod={prod} item={it} />*/}
+
                 <div className="tabela">
                     <h4 className="text-center mt-3">Lista de produtos</h4>
                     <hr />

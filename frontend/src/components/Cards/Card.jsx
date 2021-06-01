@@ -1,45 +1,26 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Card.css'
 
-class Card extends React.Component {
+function Card(props) {
 
-        item = {
-                name: this.props.name,
-                price: this.props.price
+        var item = {
+                name: props.name,
+                price: props.price
         }
 
-        render (){
-                return(
+        
+                return (
                         <>
-                        <div className="card mt-4 mb-4 bg-dark">
-                                <label className="label mt-5">{this.props.name}</label>
-                                <label className="label mt-2 mb-4">R${this.props.price}</label>
+                                <div className="card mt-4 mb-4 bg-dark">
+                                        <label className="label mt-5">{props.name}</label>
+                                        <label className="label mt-2 mb-4">R${props.price}</label>
 
-                                <button onClick={()=>this.props.adicionar(this.item, this.item.price)} className="button btn btn-outline-success mt-5">
-                                        + Adicionar
-                    </button>
-                        </div>
-                </>
+                                        <button onClick={() => props.adicionar(item, item.price)} className="button btn btn-outline-success mt-5">
+                                                + Adicionar </button>
+                                </div>
+                        </>
                 )
-        }
+        
 }
-/*function Card(props) {
-
-        const [item, setItem] = useState({name: props.name, price: props.price})
-
-        return (
-                <>
-                        <div className="card mt-4 mb-4 bg-dark">
-                                <label className="label mt-5">{props.name}</label>
-                                <label className="label mt-2 mb-4">R${props.price}</label>
-
-                                <button type="button" className="button btn btn-outline-success mt-5"
-                                        onClick={()=>props.ad}>
-                                        + Adicionar
-                    </button>
-                        </div>
-                </>
-        )
-}*/
 
 export default Card;
