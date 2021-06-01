@@ -13,11 +13,27 @@ function ProdutoComponent(props) {
 
     axios.get(API_URL).then((response) => setProd(response.data))
 
+    function removeCesta(item) {
+        const itemCopy = Array.from(cesta)
+        var p = 0
+        for(var i=0; i<prod.length; i++){
+            if(prod[i].name === item.name){
+                p = prod[i].price
+            }
+        }
+        for (var i = 0; i < itemCopy.length; i++) {
+            if (itemCopy[i].name === item.name) {
+                itemCopy[i].quantity = parseInt(itemCopy[i].quantity - 1)
+                itemCopy[i].price = parseFloat(p * itemCopy[i].quantity).toFixed(2)
+            }
+        }
+        setCesta(itemCopy)
+    }
 
     function addCesta(item) {
         const itemCopy = Array.from(cesta)
         var existente = false
-        for (var i = 0; i < cesta.length; i++) {
+        for (var i = 0; i < itemCopy.length; i++) {
             if (itemCopy[i].name === item.name) {
                 itemCopy[i].quantity++
                 itemCopy[i].price = parseFloat(item.price * itemCopy[i].quantity).toFixed(2)
@@ -53,7 +69,7 @@ function ProdutoComponent(props) {
                                             <td>{p.name}</td>
                                             <td>{p.price}</td>
                                             <td>{p.quantity}</td>
-                                            <td><button type="button" className="btn2 btn-danger">-</button></td>
+                                            <td><button onClick={() => removeCesta(p)} type="button" className="btn2 btn-danger">-</button></td>
                                         </tr>
                                     
                                 )
