@@ -26,3 +26,8 @@ aside.tabela {
 .btn2{
     width: 25px;
 }
+.btnConfirm{
+    width: auto;
+    margin-left: 110px;
+    font-size: 15px;
+}

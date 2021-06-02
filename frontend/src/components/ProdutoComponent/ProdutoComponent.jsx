@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link, Redirect, Route } from 'react-router-dom'
 import '../../components/Basket/Basket.css'
 import Card from '../Cards/Card';
 import './ProdutoComponent.css'
@@ -91,8 +92,9 @@ function ProdutoComponent() {
                             }
                         </tbody>
                     </table>
-                    <div className="tnome bg-dark">
+                    <div className="tComprar bg-dark">
                         TOTAL: R${total.toFixed(2)}
+                        <button type="button" className="btnConfirm btn-primary">Comprar</button>
                     </div>
                 </div>
 
