@@ -23,24 +23,31 @@ aside.formulario{
     margin-bottom: 5px;
     font-size: 14px;
     font-weight: 500;
-    color: aliceblue;
+    color: #fff;
 }
 
 .cadastro-campo input{
-    border: aliceblue;
+    border: #fff;
     border-radius: 8px;
-    color: blanchedalmond;
+    color: #fff;
     background-color: rgb(26, 25, 25);
     height: 36px;
     padding: 0 10px;
 }
 
 .tt{
-    color: cornsilk;
+    color: #fff;
     margin-top: 25px;
 }
 
 .sss{
     margin-right: 350px;
     margin-bottom: 40px;
+}
+
+.bt-salvar{
+    color: #fff;
+    background-color: rgb(36, 34, 34);
+    border-radius: 10px;
+    height: 50px;
 }

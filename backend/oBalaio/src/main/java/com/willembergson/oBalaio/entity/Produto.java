@@ -24,9 +24,5 @@ public class Produto {
     @Column
     private Double price;
 
-    public Produto(Produto p){
-        id = p.getId();
-        name = p.getName();
-        price = p.getPrice();
-    }
+
 }
