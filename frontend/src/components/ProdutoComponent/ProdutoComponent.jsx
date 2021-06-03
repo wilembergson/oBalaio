@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link, Redirect, Route } from 'react-router-dom'
 import '../../components/Basket/Basket.css'
 import Card from '../Cards/Card';
+import Confirmacao from '../Cadastro/Cadastro'
 import './ProdutoComponent.css'
 
 const API_URL = 'http://localhost:8080/produtos/listAll'
@@ -12,6 +13,8 @@ function ProdutoComponent() {
     const [prod, setProd] = useState([])
     const [cesta, setCesta] = useState([])
     const [total, setTotal] = useState(0)
+
+    
 
     axios.get(API_URL).then((response) => setProd(response.data))
 
@@ -47,7 +50,6 @@ function ProdutoComponent() {
         }
         setCesta(itemCopy)
     }
-
 
     useEffect(() => {
         var tot = 0
@@ -94,7 +96,7 @@ function ProdutoComponent() {
                     </table>
                     <div className="tComprar bg-dark">
                         TOTAL: R${total.toFixed(2)}
-                        <button type="button" className="btnConfirm btn-primary">Comprar</button>
+                       <Link to='/confirmacao'> <button type="button" className="btnConfirm btn-primary">Comprar</button></Link>
                     </div>
                 </div>
 

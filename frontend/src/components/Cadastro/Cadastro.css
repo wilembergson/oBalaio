@@ -1,0 +1,46 @@
+.dados{
+    display: grid;
+    grid-template-columns: 350px 450px 350px;
+    grid-template-areas: "s1" "formulario" "s2";
+}
+
+aside.s1{
+    grid-area: s1;
+}
+
+aside.formulario{
+    grid-area: formulario;
+}
+
+.cadastro-campo{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    padding-right: 350px;
+}
+
+.cadastro-campo label{
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: aliceblue;
+}
+
+.cadastro-campo input{
+    border: aliceblue;
+    border-radius: 8px;
+    color: blanchedalmond;
+    background-color: rgb(26, 25, 25);
+    height: 36px;
+    padding: 0 10px;
+}
+
+.tt{
+    color: cornsilk;
+    margin-top: 25px;
+}
+
+.sss{
+    margin-right: 350px;
+    margin-bottom: 40px;
+}
