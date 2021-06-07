@@ -38,4 +38,10 @@ public class PedidoController {
     public Pedido findById(@PathVariable Long id) throws Exception{
         return service.findById(id);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable Long id) throws Exception {
+        service.delete(id);
+    }
 }

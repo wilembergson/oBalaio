@@ -34,4 +34,9 @@ public class PedidoService {
         Pedido pedido = repository.findById(id).orElseThrow(() -> new Exception());
         return pedido;
     }
+
+    public void delete(Long id) throws  Exception{
+        repository.findById(id).orElseThrow(() -> new Exception());
+        repository.deleteById(id);
+    }
 }

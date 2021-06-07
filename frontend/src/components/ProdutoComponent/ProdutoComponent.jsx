@@ -6,7 +6,8 @@ import Card from '../Cards/Card';
 import Confirmacao from '../Cadastro/Cadastro'
 import './ProdutoComponent.css'
 
-const API_URL = 'http://localhost:8080/produtos/listAll'
+const API_URL_LISTALL = 'http://localhost:8080/produtos/listAll'
+const API_URL_SAVECESTA = 'http://localhost:8080/pedidos'
 
 function ProdutoComponent() {
 
@@ -16,7 +17,12 @@ function ProdutoComponent() {
 
     
 
-    axios.get(API_URL).then((response) => setProd(response.data))
+    axios.get(API_URL_LISTALL).then((response) => setProd(response.data))
+
+    function saveCesta(){
+        const cestaSalva = {itens: cesta, total: total}
+        axios.post(API_URL_SAVECESTA, cestaSalva).then(alert("Compra efetuada com sucesso."), setCesta([]), setTotal(0))
+    }
 
     function removeCesta(item) {
         const itemCopy = Array.from(cesta)
@@ -96,7 +102,7 @@ function ProdutoComponent() {
                     </table>
                     <div className="tComprar bg-dark">
                         TOTAL: R${total.toFixed(2)}
-                       <Link to='/confirmacao'> <button type="button" className="btnConfirm btn-primary">Comprar</button></Link>
+                       <Link to='/'> <button type="button" onClick={()=> saveCesta()} className="btnConfirm btn-primary">Comprar</button></Link>
                     </div>
                 </div>
 

@@ -45,7 +45,7 @@ function Cadastro() {
                         </div>
                         <div className="cadastro-campo">
                             <label htmlFor="price">Preço</label>
-                            <input id="price" className="price" type="number" onChange={onChange} />
+                            <input id="price" className="price" type="number" onChange={onChange} step="0.01"/>
                         </div>
                         <div>
                             {/*Adicionar efeito hover no botão*/}
