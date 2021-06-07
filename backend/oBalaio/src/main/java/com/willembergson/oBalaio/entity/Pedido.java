@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 @Entity
@@ -15,15 +17,20 @@ public class Pedido{
 
     private Object[] itens;
     private Double total;
+    private String date = dataAtual();
 
     public Pedido(){
     }
 
-    public Pedido(Object[] itens, Double total) {
+    public Pedido(Object[] itens, Double total){
         this.itens = itens;
         this.total = total;
     }
 
+    private String dataAtual(){
+        DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        return formatar.format(LocalDateTime.now());
+    }
 
     public Long getId() {
         return id;
@@ -39,6 +46,14 @@ public class Pedido{
 
     public Double getTotal() {
         return total;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public void setTotal(Double total) {

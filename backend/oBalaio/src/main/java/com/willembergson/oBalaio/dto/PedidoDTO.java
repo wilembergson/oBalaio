@@ -2,9 +2,9 @@ package com.willembergson.oBalaio.dto;
 
 import com.willembergson.oBalaio.entity.Pedido;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.Date;
 
 @AllArgsConstructor
 public class PedidoDTO {
@@ -17,12 +17,16 @@ public class PedidoDTO {
     @NotEmpty
     private Double total;
 
+    @NotEmpty
+    private String date;
+
     public PedidoDTO(){}
 
     public  PedidoDTO(Pedido pedido){
         id = pedido.getId();
         itens = pedido.getItens();
         total = pedido.getTotal();
+        date = pedido.getDate();
     }
 
     public Long getId() {
@@ -47,5 +51,13 @@ public class PedidoDTO {
 
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
