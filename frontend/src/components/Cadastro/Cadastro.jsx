@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import './Cadastro.css'
 import axios from 'axios'
+import { BsFillTrashFill } from 'react-icons/bs'
+import { GrEdit } from 'react-icons/gr'
+import { Redirect } from 'react-router'
 
 const API_URL = 'http://localhost:8080/produtos'
+const API_URL_LISTALL = 'http://localhost:8080/produtos/listAll'
 
 const produtoInicial = {
     name: '',
@@ -11,8 +15,10 @@ const produtoInicial = {
 
 function Cadastro() {
 
+    const [prod, setProd] = useState([])
     const [produto, setProduto] = useState(produtoInicial)
-    const [nome, setNome] = useState('')
+
+    axios.get(API_URL_LISTALL).then((response) => setProd(response.data))
 
     function onChange(evento) {
         const { className, value } = evento.target
@@ -26,11 +32,6 @@ function Cadastro() {
         axios.post(API_URL, produto)
     }
 
-    function testar(e){
-        console.log(e.target.className)
-        setNome(e.target.cla)
-
-    }
     return (
         <>
             <div className="dados">
@@ -52,6 +53,35 @@ function Cadastro() {
                             <button type="submit" className="bt-salvar">Salvar</button>
                         </div>
                     </form>
+                    <hr className="sss" />
+                    <div className="cadastro-campo">
+                    <h3 className="tt">Produtos cadastrados</h3>
+                    <table className="table table-striped">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>NOME</td>
+                                <td>PREÇO</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                prod.map(p =>
+                                    <tr key={p.id}>
+                                        <td>{p.id}</td>
+                                        <td>{p.name}</td>
+                                        <td>R${p.price.toFixed(2)}</td>
+                                        <td><button type="button" className="btn btn-danger"><BsFillTrashFill/></button>
+                                            <button type="button" className="btn btn-warning"><GrEdit/></button>
+                                        </td>
+                                    </tr>
+
+                                )
+                            }
+                        </tbody>
+                    </table>
+                    </div>
                 </div>
             </div>
         </>
