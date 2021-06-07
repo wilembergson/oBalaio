@@ -1,6 +1,8 @@
 package com.willembergson.oBalaio.services;
 
+import com.willembergson.oBalaio.dto.PedidoDTO;
 import com.willembergson.oBalaio.entity.Pedido;
+import com.willembergson.oBalaio.entity.Produto;
 import com.willembergson.oBalaio.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,8 +24,14 @@ public class PedidoService {
         repository.save(pedido);
     }
 
-    public List<Pedido> findAll(){
+    public List<PedidoDTO> findAll(){
         List<Pedido> list = repository.findAll();
-        return list.stream().map(x -> new Pedido(x.getItens(), x.getTotal())).collect(Collectors.toList());
+        return list.stream()
+                .map(x -> new PedidoDTO(x)).collect(Collectors.toList());
+    }
+
+    public Pedido findById(Long id) throws Exception{
+        Pedido pedido = repository.findById(id).orElseThrow(() -> new Exception());
+        return pedido;
     }
 }

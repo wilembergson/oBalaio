@@ -1,6 +1,8 @@
 package com.willembergson.oBalaio.controller;
 
+import com.willembergson.oBalaio.dto.PedidoDTO;
 import com.willembergson.oBalaio.entity.Pedido;
+import com.willembergson.oBalaio.entity.Produto;
 import com.willembergson.oBalaio.services.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,7 +29,13 @@ public class PedidoController {
     }
 
     @GetMapping("/listAll")
-    public List<Pedido> findAll(){
+    public List<PedidoDTO> findAll(){
         return service.findAll();
+    }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Pedido findById(@PathVariable Long id) throws Exception{
+        return service.findById(id);
     }
 }

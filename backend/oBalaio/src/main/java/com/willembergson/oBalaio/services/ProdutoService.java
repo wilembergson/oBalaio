@@ -1,5 +1,6 @@
 package com.willembergson.oBalaio.services;
 
+import com.willembergson.oBalaio.dto.PedidoDTO;
 import com.willembergson.oBalaio.dto.ProdutoDTO;
 import com.willembergson.oBalaio.entity.Produto;
 import com.willembergson.oBalaio.repository.ProdutoRepository;

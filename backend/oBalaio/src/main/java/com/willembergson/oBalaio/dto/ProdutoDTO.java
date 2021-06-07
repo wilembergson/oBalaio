@@ -25,8 +25,6 @@ public class ProdutoDTO {
     @NotEmpty
     private Double price;
 
-    private Integer quantity;
-
     public ProdutoDTO(Produto p){
         id = p.getId();
         name = p.getName();
