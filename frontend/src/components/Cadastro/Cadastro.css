@@ -54,18 +54,18 @@ aside.formulario{
     background-color: rgb(54, 54, 53);
   }
 
-  .btn{
+.btn{
       width: auto;
       margin-right: 10px;
       margin-top: 5px;
       margin-bottom: 3px;
+      display: hide;
 
   }
 
-  .tableCadastro{
-      background-color: rgb(73, 72, 71);
-  }
-tbody.tr:hover{
-    
-    background-color: rgb(37, 37, 54);
+.tLinha:hover{
+    background-color: rgb(73, 83, 83);
+}
+.botaoBox{
+    width: 130px;
 }

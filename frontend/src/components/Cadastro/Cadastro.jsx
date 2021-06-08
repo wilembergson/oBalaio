@@ -60,19 +60,19 @@ function Cadastro() {
                     <hr className="sss" />
                     <div className="cadastro-campo">
                         <h3 className="tt">Produtos cadastrados</h3>
-                        <table className="table table-striped">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <td>ID</td>
                                     <td>NOME</td>
                                     <td>PREÇO</td>
-                                    <td></td>
+                                    <td className="botaoBox"></td>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
                                     prod.map(p =>
-                                        <tr key={p.id}>
+                                        <tr className="tLinha" key={p.id}>
                                             <td>{p.id}</td>
                                             <td>{p.name}</td>
                                             <td>R${p.price.toFixed(2)}</td>
