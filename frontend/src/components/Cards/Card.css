@@ -4,6 +4,9 @@
     box-shadow: 5px 5px 5px black;
     text-align: center;
 }
+.card:hover{
+    box-shadow: 5px 5px 10px black;
+}
 
 .label{
     color: aliceblue;
