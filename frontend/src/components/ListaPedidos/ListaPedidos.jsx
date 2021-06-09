@@ -28,7 +28,7 @@ function ListaPedidos(){
                                 <td>ID</td>
                                 <td>DATA</td>
                                 <td>DETALHES</td>
-                                <td>ECLUIR</td>
+                                <td>EXCLUIR</td>
                             </tr>
                         </thead>
                         <tbody>

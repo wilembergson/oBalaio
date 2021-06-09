@@ -100,9 +100,12 @@ function ProdutoComponent() {
                             }
                         </tbody>
                     </table>
-                    <div className="tComprar bg-dark">
-                        TOTAL: R${total.toFixed(2)}
-                       <Link to='/'> <button type="button" onClick={()=> saveCesta()} className="btnConfirm btn-primary">Comprar</button></Link>
+                    <div className="tComprar">
+                        <label className="total">R${total.toFixed(2)}</label>
+                       <Link to='/comprar'>
+                            <button type="button" onClick={()=>setCesta([])} className="btnConfirm btn-warning ml-5">Limpar</button>
+                           <button type="button" onClick={()=> saveCesta()} className="btnConfirm btn-primary">Comprar</button>
+                           </Link>
                     </div>
                 </div>
 
