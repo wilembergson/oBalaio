@@ -74,7 +74,7 @@ function ProdutoComponent() {
         <>
             <div className="dados">
                 <div className="basket ml-2">
-                    <div className="tnome bg-dark">
+                    <div className="tnome">
                         Cesta
                  </div>
                     <table className="table table-striped">

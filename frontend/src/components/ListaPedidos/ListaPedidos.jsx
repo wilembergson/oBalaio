@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import './ListaPedidos.css'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { BiDetail } from 'react-icons/bi'
+import { Link } from 'react-router-dom'
 
 const API_URL = 'http://localhost:8080/pedidos'
 
@@ -37,7 +38,7 @@ function ListaPedidos(){
                                     <tr className="tLinha" key={p.id}>
                                         <td>{p.id}</td>
                                         <td>{p.date}</td>
-                                        <td><button type="button" className="btn btn-primary"><BiDetail/></button></td>
+                                        <td><Link to="/detalhes"><button type="button" className="btn btn-primary"><BiDetail/></button></Link></td>
                                         <td><button type="button" onClick={()=> remover(p.id)} className="btn btn-danger"><BsFillTrashFill/></button></td>
                                     </tr>
 
