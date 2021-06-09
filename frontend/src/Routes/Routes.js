@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
 import Cadastro from '../components/Cadastro/Cadastro'
+import Home from '../components/Home/Home'
 
 import Confirmacao from '../components/Cadastro/Cadastro'
 import ListaPedidos from '../components/ListaPedidos/ListaPedidos'
@@ -10,7 +11,8 @@ function Routes(props){
     return(
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact component={ProdutoComponent} />
+                <Route path="/" exact component={Home} />
+                <Route path="/comprar" component={ProdutoComponent}/>
                 <Route path="/confirmacao" component={Cadastro}/> 
                 <Route path="/pedidos" component={ListaPedidos}/>
             </Switch>

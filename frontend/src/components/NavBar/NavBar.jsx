@@ -19,7 +19,7 @@ function NavBar() {
                             <a className="nav-link" aria-current="page" href="/"><ImHome3/> Home</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" aria-current="page" href="/"><MdShoppingCart/> Comprar</a>
+                            <a className="nav-link" aria-current="page" href="/comprar"><MdShoppingCart/> Comprar</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/confirmacao"><FaListAlt/> Cadastro</a>
