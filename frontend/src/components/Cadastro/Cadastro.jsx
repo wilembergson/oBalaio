@@ -4,7 +4,6 @@ import axios from 'axios'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { GrEdit } from 'react-icons/gr'
 import { AiFillSave } from 'react-icons/ai'
-import { useParams } from 'react-router'
 
 const API_URL = 'http://localhost:8080/produtos'
 
@@ -37,7 +36,7 @@ function Cadastro() {
     }
 
     function atualizar(p){
-        alert(`Produto de ID=${p.id} selecionado. Altere os campos que desejar no formulário de cadastro.`)
+        alert(`Produto de ID=${p.id} selecionado. Altere os campos que desejar no formulário de cadastro para atualizar os dados deste produto.`)
         setProduto(p)
     }
 
@@ -47,10 +46,7 @@ function Cadastro() {
     }
 
     return (
-        <>
-            <div className="dados">
-                <div className="s1"></div>
-                <div className="formulario">
+        <div className="formulario">
                     <h1 className="tt">Cadastro de Produtos</h1>
                     <hr className="sss" />
                     {/*--------------------------------------FORM-------------------------------------------------*/}
@@ -77,7 +73,7 @@ function Cadastro() {
                                     <td>ID</td>
                                     <td>NOME</td>
                                     <td>PREÇO</td>
-                                    <td className="botaoBox"></td>
+                                    <td className="botaoBox">DELETAR / EDITAR</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,7 +83,7 @@ function Cadastro() {
                                             <td>{p.id}</td>
                                             <td>{p.name}</td>
                                             <td>R${p.price.toFixed(2)}</td>
-                                            <td><button type="button" onClick={() => deletar(p)} className="btn btn-danger"><BsFillTrashFill /></button>
+                                            <td><button type="button" onClick={() => deletar(p)} onMouseOver="Deletar" className="btn btn-danger"><BsFillTrashFill /></button>
                                                 <button type="button" onClick={() => atualizar(p)} className="btn btn-warning"><GrEdit /></button>
                                             </td>
                                         </tr>
@@ -98,8 +94,6 @@ function Cadastro() {
                         </table>
                     </div>
                 </div>
-            </div>
-        </>
     )
 }
 

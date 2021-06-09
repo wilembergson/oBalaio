@@ -3,6 +3,7 @@
     height: 300px;
     box-shadow: 5px 5px 5px black;
     text-align: center;
+    background-color: rgb(52, 54, 54);
 }
 .card:hover{
     box-shadow: 5px 5px 10px black;
