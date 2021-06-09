@@ -1,5 +1,10 @@
 import React from 'react'
 import "./NavBar.css"
+import { MdShoppingCart } from 'react-icons/md'
+import { FaListAlt } from 'react-icons/fa'
+import { FaTasks } from 'react-icons/fa'
+import { ImHome3 } from 'react-icons/im'
+
 function NavBar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark">
@@ -10,14 +15,17 @@ function NavBar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <a className="nav-link" aria-current="page" href="/">Home</a>
+                    <li className="nav-item">
+                            <a className="nav-link" aria-current="page" href="/"><ImHome3/> Home</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/confirmacao">Cadastro</a>
+                            <a className="nav-link" aria-current="page" href="/"><MdShoppingCart/> Comprar</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/pedidos">Pedidos</a>
+                            <a className="nav-link" href="/confirmacao"><FaListAlt/> Cadastro</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/pedidos"><FaTasks/> Pedidos</a>
                         </li>
                     </ul>
                 </div>
