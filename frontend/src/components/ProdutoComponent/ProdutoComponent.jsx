@@ -26,16 +26,13 @@ function ProdutoComponent() {
 
     function removeCesta(item) {
         const itemCopy = Array.from(cesta)
-        var p = 0
-        for (var i = 0; i < prod.length; i++) {
-            if (prod[i].name === item.name) {
-                p = prod[i].price
-            }
-        }
+       
         for (var i = 0; i < itemCopy.length; i++) {
             if (itemCopy[i].name === item.name) {
                 itemCopy[i].quantity = parseInt(itemCopy[i].quantity - 1)
-                //itemCopy[i].price = parseFloat(p * itemCopy[i].quantity).toFixed(2)
+               if(itemCopy[i].quantity === 0){
+                   itemCopy.splice(i, 1)
+               }
             }
         }
         setCesta(itemCopy)
