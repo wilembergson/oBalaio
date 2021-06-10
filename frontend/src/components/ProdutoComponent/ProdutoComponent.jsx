@@ -35,7 +35,7 @@ function ProdutoComponent() {
         for (var i = 0; i < itemCopy.length; i++) {
             if (itemCopy[i].name === item.name) {
                 itemCopy[i].quantity = parseInt(itemCopy[i].quantity - 1)
-                itemCopy[i].price = parseFloat(p * itemCopy[i].quantity).toFixed(2)
+                //itemCopy[i].price = parseFloat(p * itemCopy[i].quantity).toFixed(2)
             }
         }
         setCesta(itemCopy)
@@ -47,7 +47,7 @@ function ProdutoComponent() {
         for (var i = 0; i < itemCopy.length; i++) {
             if (itemCopy[i].name === item.name) {
                 itemCopy[i].quantity++
-                itemCopy[i].price = parseFloat(item.price * itemCopy[i].quantity).toFixed(2)
+                //itemCopy[i].price = parseFloat(item.price * itemCopy[i].quantity).toFixed(2)
                 existente = true
             }
         }
@@ -62,7 +62,7 @@ function ProdutoComponent() {
         var soma = []
         const itemCopy = Array.from(cesta)
         for (var i = 0; i < itemCopy.length; i++) {
-            soma[i] = parseFloat(itemCopy[i].price)
+            soma[i] = parseFloat(itemCopy[i].price *  itemCopy[i].quantity)
         }
         for (var i = 0; i < soma.length; i++) {
             tot = parseFloat(tot + soma[i])
@@ -91,7 +91,7 @@ function ProdutoComponent() {
                                 cesta.map(p =>
                                     <tr key={p.id}>
                                         <td>{p.name}</td>
-                                        <td>{p.price}</td>
+                                        <td>{p.price.toFixed(2)}</td>
                                         <td>{p.quantity}</td>
                                         <td><button onClick={() => removeCesta(p)} type="button" className="btn2 btn-danger">-</button></td>
                                     </tr>

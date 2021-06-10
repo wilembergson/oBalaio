@@ -67,7 +67,7 @@ function ListaPedidos() {
                         <thead>
                             <tr>
                                 <td>Nome</td>
-                                <td>Preço(R$)</td>
+                                <td>PREÇO(R$)</td>
                                 <td>Quantidade</td>
                             </tr>
                         </thead>
@@ -76,7 +76,7 @@ function ListaPedidos() {
                                 pedidoAtual.itens.map(p =>
                                     <tr key={p.id}>
                                         <td>{p.name}</td>
-                                        <td>{p.price}</td>
+                                        <td>{p.price.toFixed(2)}</td>
                                         <td>{p.quantity}</td>
                                     </tr>
 
