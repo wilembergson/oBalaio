@@ -26,7 +26,7 @@
 .botao{
     color: #fff;
     font-size: 30px;
-    background-color: rgb(238, 139, 11);
+    background-color: rgb(53, 196, 61);
     height: 70px;
     width: auto;
     border-radius: 15px;
@@ -37,7 +37,7 @@
 }
 
 .botao:hover{
-    background-color: rgb(141, 88, 19);
+    background-color: rgb(29, 141, 19);
     transform: scale(1.4);
    transition: transform 1s ease;
 }
