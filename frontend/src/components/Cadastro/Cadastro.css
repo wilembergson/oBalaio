@@ -16,14 +16,19 @@ h1{
 hr{
     width: auto;
 }
-
+.cadastro{
+    display: flex;
+    flex-direction: row;
+}
 .cadastro-campo{
     display: flex;
     flex-direction: column;
     margin-bottom: 25px;
     padding-right: 35px;
     padding-left: 35px;
+    width: 100%;
 }
+
 
 .cadastro-campo label{
     margin-bottom: 5px;

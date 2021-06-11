@@ -90,7 +90,7 @@ function ProdutoComponent() {
                                         <td>{p.name}</td>
                                         <td>{p.price.toFixed(2)}</td>
                                         <td>{p.quantity}</td>
-                                        <td><button onClick={() => removeCesta(p)} type="button" className="btn2 btn-danger">-</button></td>
+                                        <td><button onClick={() => removeCesta(p)} type="button" className="btn2 btn-danger">X</button></td>
                                     </tr>
 
                                 )

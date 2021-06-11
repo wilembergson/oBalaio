@@ -66,9 +66,9 @@ function ListaPedidos() {
                     <table className="table table-striped">
                         <thead>
                             <tr>
-                                <td>Nome</td>
+                                <td>NOME</td>
                                 <td>PREÇO(R$)</td>
-                                <td>Quantidade</td>
+                                <td>QUANTIDADE</td>
                             </tr>
                         </thead>
                         <tbody>
