@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function Home(){
     return(
         <div className="principal">
-           <div className="cima">Welcome!</div>
+           <div className="cima">Bem vindo!</div>
             <h3 className="menssagem">Nesta aplicação você será capaz de cadasrtar produtos, consulta-los 
                 em uma lista de compras e adiciona-los em seu carrinho, podendo
                 conferir o valor de cada um, suas respectivas quantidades, e o valor

@@ -28,6 +28,7 @@ function ListaPedidos() {
     }
 
     return (
+        
         <div className="paginaGeral">
             <div className="paginaLista">
                 <h2>Lista de pedidos</h2>

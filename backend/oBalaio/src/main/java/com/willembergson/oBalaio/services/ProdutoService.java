@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -24,6 +25,7 @@ public class ProdutoService {
 
     public List<ProdutoDTO> findAll(){
         List<Produto> list = produtoRepository.findAll();
+        Collections.sort(list);
         return list.stream().map(x -> new ProdutoDTO(x)).collect(Collectors.toList());
     }
 

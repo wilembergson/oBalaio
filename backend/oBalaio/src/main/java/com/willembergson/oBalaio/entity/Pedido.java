@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 @Entity
-public class Pedido{
+public class Pedido implements Comparable<Pedido>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -71,5 +71,16 @@ public class Pedido{
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Pedido outraPessoa) {
+        if(this.id > outraPessoa.getId()){
+            return -1;
+        }
+        else if(this.id < outraPessoa.getId()){
+            return 1;
+        }
+        return 0;
     }
 }

@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class Produto {
+public class Produto implements Comparable<Produto>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -60,5 +60,16 @@ public class Produto {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public int compareTo(Produto outroProduto) {
+        if(this.id > outroProduto.getId()){
+            return -1;
+        }
+        else if(this.id < outroProduto.getId()){
+            return 1;
+        }
+        return 0;
     }
 }
