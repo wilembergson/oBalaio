@@ -28,17 +28,23 @@ function Cadastro() {
 
     function onSubmit(evento) {
         evento.preventDefault()
-        if (produto.id === null) {
-            axios.post(API_URL, produto)
+        if (produto.name !== '' && produto.price !== 0) {
+            if (produto.id === null) {
+                axios.post(API_URL, produto)
+            } else {
+                axios.put(`${API_URL}/${produto.id}`, produto)
+            }
+            alert("Produto cadastrado com sucesso!")
+            setProduto(produtoInicial)
+            window.location.reload();
         } else {
-            axios.put(`${API_URL}/${produto.id}`, produto)
+            alert('Preencha todos os campos.')
         }
-        setProduto(produtoInicial)
-        window.location.reload();
+
     }
 
     function atualizar(p) {
-        alert(`Produto de ID=${p.id} selecionado. Altere os campos que desejar no formulário de cadastro para atualizar os dados deste produto.`)
+        alert(`Produto de ID=${p.id} selecionado. Altere nome e preço no formulário de cadastro para atualizar os dados deste produto.`)
         setProduto(p)
     }
 

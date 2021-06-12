@@ -39,6 +39,7 @@ function ListaPedidos() {
                         <tr>
                             <td>ID</td>
                             <td>DATA</td>
+                            <td>TOTAL</td>
                             <td>DETALHES</td>
                             <td>EXCLUIR</td>
                         </tr>
@@ -49,6 +50,7 @@ function ListaPedidos() {
                                 <tr className="tLinha" key={p.id}>
                                     <td>{p.id}</td>
                                     <td>{p.date}</td>
+                                    <td>R${p.total.toFixed(2)}</td>
                                     <td><button type="button" onClick={() => setPedidoAtual(p)} className="btn btn-primary"><BiDetail /></button></td>
                                     <td><button type="button" onClick={() => remover(p.id)} className="btn btn-danger"><BsFillTrashFill /></button></td>
                                 </tr>
