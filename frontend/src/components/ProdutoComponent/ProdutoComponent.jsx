@@ -3,11 +3,12 @@ import axios from 'axios'
 import { Link, Redirect, Route } from 'react-router-dom'
 import '../../components/Basket/Basket.css'
 import Card from '../Cards/Card';
-import Confirmacao from '../Cadastro/Cadastro'
 import './ProdutoComponent.css'
 
-const API_URL_LISTALL = 'http://localhost:8080/produtos/listAll'
-const API_URL_SAVECESTA = 'http://localhost:8080/pedidos'
+import Service from '../../services/Service';
+
+//const API_URL_LISTALL = 'http://localhost:8080/produtos/listAll'
+//const API_URL_SAVECESTA = 'http://localhost:8080/pedidos'
 
 function ProdutoComponent() {
 
@@ -17,11 +18,13 @@ function ProdutoComponent() {
 
     
 
-    axios.get(API_URL_LISTALL).then((response) => setProd(response.data))
+    Service.getProdutos().then((response) => setProd(response.data))
+    //axios.get(API_URL_LISTALL).then((response) => setProd(response.data))
 
     function saveCesta(){
         const cestaSalva = {itens: cesta, total: total}
-        axios.post(API_URL_SAVECESTA, cestaSalva).then(alert("Compra efetuada com sucesso."), setCesta([]), setTotal(0))
+        Service.salvarPedido(cestaSalva).then(alert("Compra efetuada com sucesso."), setCesta([]), setTotal(0))
+        //axios.post(API_URL_SAVECESTA, cestaSalva).then(alert("Compra efetuada com sucesso."), setCesta([]), setTotal(0))
     }
 
     function removeCesta(item) {
@@ -44,7 +47,6 @@ function ProdutoComponent() {
         for (var i = 0; i < itemCopy.length; i++) {
             if (itemCopy[i].name === item.name) {
                 itemCopy[i].quantity++
-                //itemCopy[i].price = parseFloat(item.price * itemCopy[i].quantity).toFixed(2)
                 existente = true
             }
         }

@@ -5,8 +5,7 @@ import { BsFillTrashFill } from 'react-icons/bs'
 import { BiDetail } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
 import PedidoDetalhe from '../PedidoDetalhe/PedidoDetalhe'
-
-const API_URL = 'http://localhost:8080/pedidos'
+import Service from '../../services/Service.js';
 
 const initalPedido = {
     id: 0,
@@ -20,10 +19,10 @@ function ListaPedidos() {
     const [pedidos, setPedidos] = useState([])
     const [pedidoAtual, setPedidoAtual] = useState(initalPedido)
 
-    axios.get(`${API_URL}/listAll`).then((response) => setPedidos(response.data))
+    Service.getPedidos().then((response) => setPedidos(response.data))
 
     function remover(id) {
-        axios.delete(`${API_URL}/${id}`)
+        Service.deletarPedido(id)
         alert(`Pedido de ID=${id} foi deletado com sucesso.`)
     }
 

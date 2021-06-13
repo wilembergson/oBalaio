@@ -4,9 +4,7 @@ import axios from 'axios'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { GrEdit } from 'react-icons/gr'
 import { AiFillSave } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
-
-const API_URL = 'http://localhost:8080/produtos'
+import Service from '../../services/Service.js';
 
 const produtoInicial = {
     id: null,
@@ -19,7 +17,7 @@ function Cadastro() {
     const [prod, setProd] = useState([])
     const [produto, setProduto] = useState(produtoInicial)
 
-    axios.get(`${API_URL}/listAll`).then((response) => setProd(response.data))
+    Service.getProdutos().then((response) => setProd(response.data))
 
     function onChange(evento) {
         const { className, value } = evento.target
@@ -30,9 +28,9 @@ function Cadastro() {
         evento.preventDefault()
         if (produto.name !== '' && produto.price !== 0) {
             if (produto.id === null) {
-                axios.post(API_URL, produto)
+                Service.salvarProduto(produto)
             } else {
-                axios.put(`${API_URL}/${produto.id}`, produto)
+                Service.updateProduto(produto.id, produto)
             }
             alert("Produto cadastrado com sucesso!")
             setProduto(produtoInicial)
@@ -40,7 +38,7 @@ function Cadastro() {
         } else {
             alert('Preencha todos os campos.')
         }
-
+        
     }
 
     function atualizar(p) {
@@ -49,7 +47,7 @@ function Cadastro() {
     }
 
     function deletar(p) {
-        axios.delete(`${API_URL}/${p.id}`)
+        Service.deletarProduto(p.id)
         alert(`O produto ${p.name} foi excluído com sucesso.`)
     }
 
